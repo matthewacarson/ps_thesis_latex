@@ -1,0 +1,205 @@
+\documentclass[12pt]{article}
+
+%%%% Load Packages %%%%
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{color}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage[citestyle=authoryear, bibstyle=authoryear, sorting=nyt]{biblatex}
+\usepackage{caption}
+\usepackage{etoolbox}
+\usepackage{fancyhdr}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{parskip}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage[autostyle, english = american]{csquotes}
+\MakeOuterQuote{"}
+\AtEveryBibitem{\ifentrytype{book}{\clearfield{isbn}}{}}
+\addbibresource{ps_honors_thesis.bib}
+\usepackage[acronym, nomain, nopostdot]{glossaries}
+\makeglossaries
+
+\titleformat{\section}{\fontsize{12}{14}\bfseries\centering}{\thesection}{0.5em}{}
+
+%%%% List of Acronyms and abbreviations %%%%
+
+\newacronym{afl}{AFL}{American Federation of Labor}
+
+%%%% Head height %%%%
+\setlength{\headheight}{15pt}
+%%%% Line spacing %%%%
+\setstretch{2}
+%%%% Paragraph spacing %%%%
+\setlength{\parskip}{0pt}
+%%%% Define indentation length %%%%
+\newlength{\myindent}
+\setlength{\myindent}{2em}
+%%%% Set the hanging indent %%%%
+\setlength{\bibhang}{\myindent}
+%%%% Redefine the citation command to use a colon instead of a comma and pp. %%%%
+\DeclareFieldFormat{postnote}{#1}
+\DeclareFieldFormat{multipostnote}{#1}
+%%%% Use colon (ASA Style) in-text citations (author year: page) %%%%
+\renewcommand*{\postnotedelim}{\addcolon}
+%%%% Set global text alignment to ragged-right %%%%
+%\raggedright
+%%%% Paragraph indentation %%%%
+\setlength{\parindent}{\myindent}
+
+%%%% Font %%%%
+% \setmainfont{Times New Roman}
+
+%%%% Define a variable for the title %%%%
+%\newcommand{\myTitle}{CONSTRUCTION UNION\dots{HISTORICAL-COMPARATIVE}}
+\newcommand{\imageWidth}{0.8\textwidth}
+
+%%%% Page style %%%%
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+%\fancyhead[R]{\thepage} % page number on the right side
+\fancyhead[R]{\hyperlink{toc}{\thepage}} % page number on the right side, linked to the TOC
+%\fancyhead[L]{\small \myTitle}
+\renewcommand{\headrulewidth}{1pt} % header rule
+
+% Customize abstract page
+\renewenvironment{abstract}
+  {\par\noindent\centering\textbf{Abstract}\par}
+  {\noindent\raggedright}
+%  {\par}
+
+% Redefine the quote environment
+\renewenvironment{quote}
+  {\list{}{\leftmargin=\parindent\rightmargin=0pt}%
+   \item\relax}
+  {\endlist}
+  
+% Redefine the quote environment to make it single-spaced 
+% and remove vertical space before and add one at the end
+\AtBeginEnvironment{quote}{\singlespacing\setlength{\topsep}{0pt}\setlength{\partopsep}{0pt}}
+\AtEndEnvironment{quote}{\vspace{0.5\baselineskip}}
+
+\begin{document}
+\setstretch{1.25}
+\begin{titlepage}
+  \thispagestyle{fancy}
+  \pagenumbering{gobble}
+%  \fancyhead[L]{Running head: \myTitle}
+  \renewcommand{\headrulewidth}{0pt} % header rule
+  \centering
+  \vspace*{1.95in}
+  The Policing of the ``Reserve Army'':\par
+  Economic Inequality and Police Killings\par
+  \vspace{1.2in}
+  {Matthew A. Carson\par}
+  \vspace{12pt}
+  Department of Political Science\par
+  University of California, Los Angeles\par
+  \vspace{0.5in}
+  {March 22, 2024\par}
+%  \vfill
+%  \wordcount
+\end{titlepage}
+
+% Blank page so that the abstract does not begin on the back of the cover page.
+\thispagestyle{empty} % Remove header and footer
+
+\vspace*{\fill}
+\hspace*{\fill}
+\begin{center}
+    \noindent{}This page was intentionally left blank.
+\end{center}
+\hspace*{\fill}
+\vspace*{\fill}
+
+\clearpage
+
+% Set page numbering to Roman for preliminary pages
+\pagenumbering{roman}
+\setstretch{2}
+%\titlespacing*{\abstract}{0pt}{0pt}{0pt}
+% Add abstract page
+\begin{abstract}
+This study examines the relationship between race, class, gentrification, and police use of lethal force (LUOF) in U.S. census tracts. Analyzing US Census data from 2015 to 2020 reveals that while there is a disproportionate incidence of LUOFs in the majority non-white census tracts and of non-white victims, rates within racial groups differ significantly by income. Across all racial/ethnic groups, lower-income census tracts experience more LUOFs than higher-income tracts, but these income-based disparities are sharpest within majority black and majority Latino tracts. These findings suggest that while class matters across all groups, for blacks and Latinos, the class disparity is even greater. Gentrification’s impact on LUOF rates is more nuanced. In general, gentrifying tracts did not experience a greater LUOF rate than low-income, nongentrifying tracts. However, within majority black census tracts, those undergoing gentrification experienced the highest LUOF rate.
+\end{abstract}
+
+\clearpage
+\setstretch{1.25}
+% Add table of contents
+\hypertarget{toc}{}
+\tableofcontents
+\clearpage
+
+% List of acronyms
+%\addcontentsline{toc}{section}{Acronyms}
+\printglossary[type=\acronymtype,title=Acronyms]
+
+% List of Figures
+\listoffigures
+
+% List of tables
+\listoftables
+\clearpage
+
+\setstretch{2}
+
+% Define custom section headings
+\titleformat{\part}[block]{\normalfont\Large\bfseries\MakeUppercase}{\partname\ \thepart:}{6pt}{\Large\MakeUppercase}
+\titleformat{\section}[block]{\normalfont\fontsize{12}{14}\selectfont\bfseries}{\thesection.}{0.25em}{}
+\titleformat{\subsection}[block]{\itshape\bfseries}{\thesubsection.}{0.25em}{}
+\titleformat{\subsubsection}[runin]{\normalfont\itshape\bfseries}{\hspace{\myindent}\thesubsubsection.}{0.25em}{}[.]%{\hspace{0em}}%[\hspace{2pt}]
+
+% Adjust spacing before and after sectioning commands
+\titlespacing*{\part}{0pt}{0pt}{10pt}
+\titlespacing*{\section}{0pt}{0pt}{0pt} % \baselineskip
+\titlespacing*{\subsection}{0pt}{0pt}{0pt}
+\titlespacing*{\subsubsection}{0pt}{0pt}{0.35em}
+
+
+% Set page numbering to Arabic for main content
+\pagenumbering{arabic}
+
+\part{INTRODUCTION} \
+
+On August 8, 2015, US senator and Democratic presidential candidate Bernie Sanders spoke at “Social Security Works,” an event commemorating the 50th and 80th anniversary of the enactment of Social Security and Medicare, respectively (\cite{wilsonProtestersShutBernie2015}). But before Senator Sanders could speak, several Black Lives Matter activists interrupted because they felt Sanders was inadequately responding to issues of racial justice, particularly as it pertains to the killings of black Americans by law enforcement. One activist, Marissa Johnson, in an MSNBC interview, elaborated that the interruption aimed to “put pressure on people who claim that they care about black lives” (\cite{hallBernieSandersBlack2015}). Specifically, regarding Sanders, she averred, “if you look at Bernie Sanders’s platform, you look at what he said on racial equality, he’s basically a class reductionist. He’s never really had a strong analysis that there is racism and white supremacy that is separate than [sic] the economic things that everyone experiences. So, we want to continue to push him on that” (\cite{hallBernieSandersBlack2015}). The issue for Johnson and the other activists who stormed the stage that day was that while Sanders had a fairly expansive economic justice platform, those policies were an inadequate response to issues of racism and white supremacy. Hence, from this perspective, his politics were class reductionist.
+
+Earlier that year, in an interview with CNN’s Wolf Blitzer, Senator Sanders was asked about his thoughts on the unrest in Baltimore following the murder of Freddie Gray by law enforcement. Sanders emphasized that “too many mostly black suspects have been treated terribly and, in some cases, murdered,” and that “police officers have got to be held accountable for their actions,” but also that economic factors were related to the killing of Freddie Gray:
+
+\begin{quote}
+[I]n the neighborhood where this gentleman [Freddie Gray] lives [sic], as I understand it, the unemployment rate is over 50 percent, over 50 percent. What we have got to do as a nation is understand that we have got to create millions of jobs to put people back to work to make sure that kids are in schools and not in jails. So, short term, we've got to make sure that police officers have cameras. We've got to make sure that we have real police reform so that suspects are treated with respect. Long term, we've got to make sure that our young people are working, they're in school, they're not hanging out on street corners. (\cite{sandersInterviewWolfBlitzer2015})
+\end{quote}
+
+\part{CONCLUSION}\
+
+{\color{red}[Conclusion goes here]}
+
+\clearpage
+
+\titleformat{\section}{\fontsize{12}{14}\bfseries\centering}{\thesection}{0.5em}{}
+% Line spacing
+\setstretch{1.25}
+\printbibliography[heading=bibintoc]
+
+\clearpage
+
+\paperwidth=\pdfpageheight
+\paperheight=\pdfpagewidth
+\pdfpageheight=\paperheight
+\pdfpagewidth=\paperwidth
+\headwidth=\textheight
+\begingroup 
+\vsize=\textwidth
+\hsize=\textheight
+
+%\newpage
+%\paperwidth=\pdfpageheight
+%\paperheight=\pdfpagewidth
+%\pdfpageheight=\paperheight
+%\pdfpagewidth=\paperwidth
+%\headwidth=\textwidth
+
+\end{document}
