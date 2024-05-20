@@ -1,0 +1,235 @@
+\documentclass{beamer}
+\usetheme{Madrid}
+%\usepackage[orientation=landscape,size=custom,width=28,height=21,scale=1,debug]{beamerposter} 
+% width=11.333,height=8.5
+\geometry{paperwidth=8.5in,paperheight=4.75in} 
+% paperwidth=11.333in,paperheight=8.5in
+
+%	%%%%%%%%%%%%%	%
+% Load packages %
+%	%%%%%%%%%%%%%	%
+
+%\usepackage{helvet}
+%\usepackage{tikz}
+%\usepackage{lmodern} % Load Latin Modern fonts
+%\usepackage{subcaption}
+%\usepackage{multirow}
+%\usepackage{booktabs}
+%\usepackage{graphicx} % for including graphics
+%\usepackage{multicol}
+\usepackage[citestyle=authoryear, bibstyle=authoryear, sorting=nyt]{biblatex}
+\AtEveryBibitem{
+	\clearfield{issn}
+	\ifentrytype{book}{\clearfield{isbn}}{}
+    \clearfield{urlyear}
+    \clearfield{urlmonth}
+    \clearfield{urlday}
+}
+\addbibresource{../ps_honors_thesis.bib}
+
+%----- Beamer options -----%
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+%\setbeameroption{hide notes} % Only slides
+%\setbeameroption{show only notes} % Only notes
+\setbeameroption{show notes on second screen=right} % Both
+\setbeamertemplate{navigation symbols}{} % No navigation buttons
+
+\setbeamercolor{frametitle}{bg=cyan!7, fg=black}
+
+% Redefine bibliography colors to black
+\setbeamercolor{bibliography entry author}{fg=black}
+\setbeamercolor{bibliography entry title}{fg=black} % Set book titles to black
+\setbeamercolor{bibliography entry note}{fg=black}
+\setbeamercolor{caption name}{fg=black}
+\setbeamercolor{title}{bg=cyan!7, fg=black}
+\setbeamercolor{subtitle}{bg=white, fg=black}
+
+\setbeamerfont{bibliography entry author}{size=\small}
+\setbeamerfont{bibliography entry title}{size=\small}
+\setbeamerfont{bibliography entry note}{size=\small}
+\setbeamerfont{caption name}{size=\small}
+
+\title{The Policing of the “Reserve Army”}
+\subtitle{Economic Inequality and Police Killings}
+\author{Matthew A. Carson}\date{May 21, 2024}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+  \note[item]{Welcome to the talk!}
+\end{frame}
+
+\section{Research Question and Design}
+%----- Research Question -----%
+\begin{frame}{Research Question}
+	\begin{itemize}
+		\item How does class, economic inequality, and gentrification contribute to the incidence of police killings in the US? \pause
+		\begin{itemize}
+			\item There are sharp racial disparities.
+			\item But what are the economic dimensions? \pause
+			\begin{itemize}
+				\item I'm interested specifically in looking at place. \pause
+			\end{itemize}
+			\item How do processes of gentrification contribute to rates of police killings?
+		\end{itemize}		
+	\end{itemize}
+\end{frame}
+
+%----- Research Design -----%
+\begin{frame}{Research Design: Data Sources}
+	\begin{itemize}
+	\item US Census American Community Survey
+		\begin{itemize}
+			\item Median Family Income in tracts
+			\item Racial composition of tracts
+		\end{itemize} \pause
+	\item FatalEncounters.org
+		\begin{itemize}
+			\item List of people killed by law enforcement in the US
+			\item Compiled by journalists -- FBI data not reliable
+		\end{itemize} \pause
+	\item Urban Displacement Project Typologies \nocite{udpDisplacementGentrificationTypologies2023}
+		\begin{itemize}
+			\item Condensed into three typologies
+			\begin{itemize}
+				\item Low-Income or At-Risk
+				\item Gentrifying
+				\item Stable
+			\end{itemize}
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Research Design: Operationalization}
+	
+\end{frame}
+
+\begin{frame}{Research Design: Hypotheses}
+	
+\end{frame}
+
+\section{Literature Review}
+%---- Literature Review ------%
+\begin{frame}{Literature Review}
+	\begin{itemize}
+		\item Quantitative
+		\begin{itemize}
+			\item \textcite{feldmanPoliceRelatedDeathsNeighborhood2019}
+			\item \textcite{feldmanPoliceKillingsUS2020} \pause
+		\end{itemize}
+		\item Historical
+		\begin{itemize}
+			\item \citeauthor{johnsonAfterwordBaltimorePolicing2016} \parencites*{
+			johnsonAfterwordBaltimorePolicing2016, 
+			johnsonTrumpismPolicingProblem2019, 
+			johnsonBlackLivesMatter2023} \pause
+		\end{itemize}
+		\item Space \& Place
+		\begin{itemize}
+			\item \textcite{wacquantClassRaceHyperincarceration2010}
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+%----- Findings -----%
+\section{Findings: Race and Tract Income}
+\begin{frame}{Findings: Rates by Race/Ethnicity}
+	\begin{center}
+	\includegraphics[width=0.5\linewidth]{images/majority_race_only}	
+	\end{center}
+	
+	\vspace*{24pt}
+	
+	\begin{itemize}
+	\item Majority-black neighborhoods experience a rate nearly twice that of majority-white neighborhoods.
+	\item Majority-Hispanic/Latino neighborhoods experience a rate 1.75 times greater than majority-white neighborhoods.
+	\end{itemize}	
+\end{frame}
+
+\begin{frame}{Findings: Median Household Income}
+	\begin{center}
+	\includegraphics[width=0.5\linewidth]{images/income_quintiles_only}
+	\end{center}
+	
+	\vspace*{24pt}
+	
+	\begin{itemize}
+	\item US census tracts were binned into quintiles based on the distribution of median household income across all US census tracts. 
+	\item Median household income has a strong relationship with the rate of police killings. 
+	\item Police killings occur at the greatest frequency in the lowest-income tracts. 
+	\item The lowest household income quintile tracts experience a rate over four times that of the highest household income tracts.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Findings: Median Household Income}
+	
+\end{frame}
+
+
+\begin{frame}{Findings: Majority One Race}
+	Text goes here\ldots
+\end{frame}
+
+\begin{frame}{Logistic Regression: Income Only}
+	Text goes here\ldots
+\end{frame}
+
+\begin{frame}{Logistic Regressions: Race/Ethnicity}
+	Text goes here\ldots
+\end{frame}
+
+%----- Gentrification -----%
+\section{Findings: Gentrification}
+\begin{frame}{Gentrification and Victims’ Race}
+	Text goes here\ldots
+\end{frame}
+
+\begin{frame}{Gentrification and Majority Race}
+	Text goes here\ldots
+\end{frame}
+
+\begin{frame}{Gentrification, Majority Race and Victim’s Race}
+	Text goes here\ldots
+\end{frame}
+
+%----- Discussion -----%
+\section{Discussion}
+\begin{frame}{Findings: Discussion}
+	Text goes here\ldots
+\end{frame}
+
+%----- Limitations and Future Research -----%
+\begin{frame}{Limitations and Future Research}
+	Text goes here\ldots
+\end{frame}
+
+
+\sloppy
+\begin{frame}{Bibliography}
+%	\fontsize{4}{7.2}\selectfont
+	\printbibliography
+\end{frame}
+
+%\begin{frame}{Racial Disparities}
+%\begin{itemize}
+%\begin{tabular}{|c|c|c|}
+%  \hline
+%  Header 1 & Header 2 & Header 3 \\
+%  \hline
+%  Row 1, Cell 1 & Row 1, Cell 2 & Row 1, Cell 3 \\
+%  \hline
+%  Row 2, Cell 1 & Row 2, Cell 2 & Row 2, Cell 3 \\
+%  \hline
+%\end{tabular}
+%\end{itemize}
+%\end{frame}
+
+\end{document}
