@@ -14,9 +14,10 @@
 %\usepackage{lmodern} % Load Latin Modern fonts
 %\usepackage{subcaption}
 %\usepackage{multirow}
-%\usepackage{booktabs}
+\usepackage{booktabs} % For better table rules
 %\usepackage{graphicx} % for including graphics
 %\usepackage{multicol}
+%\usepackage{amsmath}
 \usepackage[citestyle=authoryear, bibstyle=authoryear, sorting=nyt]{biblatex}
 \AtEveryBibitem{
 	\clearfield{issn}
@@ -108,12 +109,48 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Research Design: Operationalization}
-	
+\begin{frame}{Research Design: Definitions}
+	\begin{itemize}
+		\item Lethal Use of Force (LUOF)
+		\begin{itemize}
+			\item Include
+			\begin{itemize}
+				\item  tasered, gunshot, stabbed, asphyxiated/restrained, beaten/bludgeoned with an instrument, chemical agent/pepper spray, asphyxiation/restrained, or less than lethal force.
+			\end{itemize}
+			\item Exclude
+			\begin{itemize}
+				\item vehicle, fell from a height, drowned, medical emergency, other, burned/smoke inhalation, drug overdose, and undetermined.
+			\end{itemize}
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Research Design: Gentrification}
+\begin{center}
+\includegraphics[scale=1]{images/low_income_at_risk}
+\end{center}
+\end{frame}
+
+\begin{frame}{Research Design: Gentrification}
+\begin{center}
+\includegraphics[scale=1]{images/gentrifying}
+\end{center}
+\end{frame}
+
+\begin{frame}{Research Design: Gentrification}
+\begin{center}
+\includegraphics[scale=1]{images/stable}
+\end{center}
 \end{frame}
 
 \begin{frame}{Research Design: Hypotheses}
-	
+	\begin{tabular}{@{} l @{\hspace{18pt}} p{432pt} @{}}
+	$\textbf{H}_1$: & LUOF rates should vary more substantially by income quintiles within each racial group than by racial groups within each income quintile. The lowest income quintiles should have the highest LUOF rates.
+	\end{tabular}
+	\vfill
+	\begin{tabular}{@{} l @{\hspace{18pt}} p{432pt} @{}}
+	$\textbf{H}_2$: &Tracts experiencing gentrification or vulnerable to becoming gentrified should experience higher rates of LUOF than higher-income tracts that have experienced no gentrification, regardless of the racial composition of the tract. That is, there should be more variation within each racial group by gentrification typology than there is within each gentrification typology by majority race.
+	\end{tabular}
 \end{frame}
 
 \section{Literature Review}
@@ -170,20 +207,57 @@
 \end{frame}
 
 \begin{frame}{Findings: Median Household Income}
-	
+	\begin{center}
+		\includegraphics[width=\linewidth]{images/all_200}
+	\end{center}
 \end{frame}
 
-
-\begin{frame}{Findings: Majority One Race}
-	Text goes here\ldots
+\begin{frame}{Findings: Majority Race and Income}
+	\begin{center}
+		\includegraphics[width=\linewidth]{images/race_only_denom_race}
+	\end{center}
 \end{frame}
 
 \begin{frame}{Logistic Regression: Income Only}
-	Text goes here\ldots
+    \begin{columns}
+        % First column for the table
+        \begin{column}{0.5\textwidth}
+        	\resizebox{\linewidth}{!}{%
+                \begin{tabular}{lcccccc}
+                    \toprule
+                    Log likelihood: & -21947.515 & & & & & \\
+                    \midrule
+                    \multicolumn{3}{l}{Number of obs: 82,907} & \multicolumn{4}{l}{LR chi2(1): 875.58} \\
+                    \multicolumn{3}{l}{Prob $>$ chi2: 0.0000} & \multicolumn{4}{l}{Pseudo R2: 0.0196} \\
+                    \midrule
+                    \midrule
+                    \texttt{fatal\_enc\_binary} & Coefficient & Std. err. & z & P$>|$z$|$ & \multicolumn{2}{c}{[95\% conf. interval]} \\
+                    \midrule
+                    \texttt{IncomeE\_1k} & -0.013265 & 0.0004899 & -27.08 & 0.000 & -0.0142252 & -0.0123049 \\
+                    \texttt{\_cons} & -1.636736 & 0.0319747 & -51.19 & 0.000 & -1.699406 & -1.574067 \\
+                    \bottomrule
+                \end{tabular}
+			}
+        \end{column}
+
+        % Second column for the image
+        \begin{column}{0.5\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{images/LUOF_logit_income_only}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \begin{frame}{Logistic Regressions: Race/Ethnicity}
-	Text goes here\ldots
+	\begin{center}
+	\includegraphics[height=0.9\textheight]{images/LUOF_logit_race}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Logistic Regressions: Marginal Effects}
+	\begin{center}
+		\includegraphics[height=0.9\textheight]{images/LUOF_logit_combined_effects}
+	\end{center}
 \end{frame}
 
 %----- Gentrification -----%
