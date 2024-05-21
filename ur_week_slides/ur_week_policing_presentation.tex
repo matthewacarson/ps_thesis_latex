@@ -213,43 +213,76 @@
 
 \begin{frame}{Logistic Regression: Income Only}
     \begin{columns}
-        % First column for the table
-        \begin{column}{0.5\textwidth}
+    		% First column for the table
+        \begin{column}{0.6\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{images/LUOF_logit_income_only}
+        \end{column}
+        % Second column for the image
+        \begin{column}{0.4\textwidth}
         	\resizebox{\linewidth}{!}{%
                 \begin{tabular}{lcccccc}
                     \toprule
-                    Log likelihood: & -21947.515 & & & & & \\
+                    Log likelihood: & -21947.515 & &Dependent Var: & LUOF $\ge1$ & & \\
                     \midrule
                     \multicolumn{3}{l}{Number of obs: 82,907} & \multicolumn{4}{l}{LR chi2(1): 875.58} \\
                     \multicolumn{3}{l}{Prob $>$ chi2: 0.0000} & \multicolumn{4}{l}{Pseudo R2: 0.0196} \\
                     \midrule
                     \midrule
-                    \texttt{fatal\_enc\_binary} & Coefficient & Std. err. & z & P$>|$z$|$ & \multicolumn{2}{c}{[95\% conf. interval]} \\
+                    Term & Coefficient & Std. err. & z & P$>|$z$|$ & \multicolumn{2}{c}{[95\% conf. interval]} \\
                     \midrule
-                    \texttt{IncomeE\_1k} & -0.013265 & 0.0004899 & -27.08 & 0.000 & -0.0142252 & -0.0123049 \\
-                    \texttt{\_cons} & -1.636736 & 0.0319747 & -51.19 & 0.000 & -1.699406 & -1.574067 \\
+                    Income (10k) & -0.1326502 & 0.0048988 & -27.08 & 0.000 & -0.1422516 & -0.1230488 \\
+                    Intercept & -1.636736 & 0.0319747 & -51.19 & 0.000 & -1.699406 & -1.574067 \\
                     \bottomrule
                 \end{tabular}
-			}
-        \end{column}
-
-        % Second column for the image
-        \begin{column}{0.5\textwidth}
-            \centering
-            \includegraphics[width=\linewidth]{images/LUOF_logit_income_only}
+			} \pause
+			
+			\vspace{20pt}		
+			
+			$e^{-0.1326502} = 0.8758$ \pause
+			
+			\vspace{20pt}	
+			
+			$1 - 0.8758 = 0.1242$ \pause
+			
+			\vspace{20pt}	
+			
+			For every \$10k in income \pause $\rightarrow$ 12.42 \% decrease in the odds of a census tract experiencing at least one LUOF.
         \end{column}
     \end{columns}
 \end{frame}
 
 \begin{frame}{Logistic Regressions: Race/Ethnicity}
-	\begin{center}
-	\includegraphics[height=0.9\textheight]{images/LUOF_logit_race}
-	\end{center}
+%	\includegraphics[height=0.85\textheight]{images/LUOF_logit_bivariate}
+    \begin{columns}
+    		% First column for the table
+        \begin{column}{0.6\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{images/race_logit}
+        \end{column}
+        % Second column for the image
+        \begin{column}{0.4\textwidth}
+        	\resizebox{\linewidth}{!}{%
+				\begin{tabular}{lrrcrrr}
+                    \toprule
+                    Dependent Var: & LUOF $\ge1$  & & & & & \\
+                    \midrule
+                    \midrule
+                    Proportion & Coefficient & Std. err. & z & P$>|$z$|$ & \multicolumn{2}{c}{[95\% conf. interval]} \\
+                    \midrule
+                    Black 				& 0.655957 	& 0.055286 	& \text{ 11.86} 	& 0.000 	& 0.547598 	& 0.764316 \\
+                    White 				& -0.926671 	& 0.041876 	&-22.13 				& 0.000 	& -1.008746 	& -0.844597 \\
+                    Hisp/Latino 	& 1.015783 	& 0.051397 	& \text{ 19.76} 	& 0.000 	& 0.915046 	& 1.116519 \\
+                    \bottomrule
+                \end{tabular}
+			}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 \begin{frame}{Logistic Regressions: Marginal Effects}
 	\begin{center}
-		\includegraphics[height=0.9\textheight]{images/LUOF_logit_combined_effects}
+		\includegraphics[height=0.85\textheight]{images/LUOF_logit_combined_effects}
 	\end{center}
 \end{frame}
 
@@ -278,6 +311,21 @@
 	Text goes here\ldots
 \end{frame}
 
+
+\begin{frame}
+                \begin{tabular}{lrrcrrr}
+                    \toprule
+                    Dependent Var: & LUOF $\ge1$  & & & & & \\
+                    \midrule
+                    \midrule
+                    Proportion & Coefficient & Std. err. & z & P$>|$z$|$ & \multicolumn{2}{c}{[95\% conf. interval]} \\
+                    \midrule
+                    Black 				& 0.655957 	& 0.055286 	& \text{ 11.86} 	& 0.000 	& 0.547598 	& 0.764316 \\
+                    White 				& -0.926671 	& 0.041876 	&-22.13 				& 0.000 	& -1.008746 	& -0.844597 \\
+                    Hisp/Latino 	& 1.015783 	& 0.051397 	& \text{ 19.76} 	& 0.000 	& 0.915046 	& 1.116519 \\
+                    \bottomrule
+                \end{tabular}
+\end{frame}
 
 \sloppy
 \begin{frame}{Bibliography}
