@@ -396,6 +396,31 @@ However, this analysis is inadequate because it does not tell us about the inter
 
 Given that so many LUOFs occur in the lowest census tract income quintile, it is helpful to examine what the distribution looks like within that quintile. To accomplish this, the lowest quintile was divided into terciles. Tracts were binned into 15 quantiles; the lower three are equivalent to the terciles of the lowest quintile. Interestingly, there is not a sharp skew to the distributions within the quintiles. To be sure, the lowest terciles experienced the highest rate across all groups, with the distribution among majority-black tracts being the most-skewed toward the lowest tertile, but the differences in rates of LUOFs between terciles are not nearly as great as they are between quintiles.
 
+\subsection{Logistic Regression: Income Only}
+
+Because categorizing tracts into majority-one-race tracts sets an arbitrary threshold for inclusion/exclusion from the category, using the proportion of race x living in y tract overcomes this because the proportions are continuous. This allows us to analyze the racial composition of the tract in a more granular way that categorical approaches might flatten out or overlook. For purposes of the logistic regressions, median household income is the independent variable, and the dependent variable is a binary variable indicating whether a LUOF occurred between 2015 and 2020 in the census tract. The initial regression included only median household income as a predictor to establish a baseline for understanding the effect of income on the probability of being killed by law enforcement. The equation for the regression is:
+\begin{equation}
+\text{logit}(LUOF_{i})=\beta_{0} + \beta_{1} \times income1k_{i} + \epsilon_{i}
+\end{equation}
+
+\noindent{}where \textit{i} is a census tract; \textit{LUOF} is a binary variable indicating whether a LUOF occurred; and \textit{Income}1\textit{k} is the median household income in thousands of dollars.
+
+Regression results show a negative relationship between income and the probability of a tract experiencing at least one LUOF during the period (\autoref{tab:income_logit}). A plot of the predicted probabilities indicates a strong curvilinear relationship, with the probability being most pronounced in tracts with incomes of \$50 thousand or less, and the curve flattens somewhat around \$200 thousand. Exponentiating the coefficient results in 0.9868 ($e^{-0.013265}$~=~0.986823), meaning that for every one thousand dollars in median household income, the odds of a census tract experiencing at least one LUOF declines by 1.32 percent (1~-~0.9868~=~0.0132).
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{lcccccc}
+\toprule
+Variable & Coefficient & Std. Err. & Z-score & P-value & 95\% Conf. Interval \\
+\midrule
+Intercept & -1.636736 & 0.03197 & -51.19 & $<$0.0001 & -1.6994, -1.5741 \\
+Income (\$1k) & -0.013265 & 0.00049 & -27.08 & $<$0.0001 & -0.0142, -0.0123 \\
+\bottomrule
+\end{tabular}
+\caption{Losistic Regression Results for Median Household Income}
+\label{tab:income_logit}
+\end{table}
+
 \section{CONCLUSION}\
 
 {\color{red}[Conclusion goes here]}
