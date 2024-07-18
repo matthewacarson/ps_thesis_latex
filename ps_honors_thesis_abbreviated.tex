@@ -216,6 +216,12 @@ $\textbf{H}_1$: &\acrshort{luof} rates should vary more substantially by income 
 
 \vspace{12pt}
 
+
+
+% The same scheme was employed to calculate the rates for the various gentrification typologies. First, rates were calculated for the Urban Displacement Project’s (\acrshort{udp}) gentrification typologies, \texttt{UDP}, without respect to the majority-race classification or the race of the victim. Then rates will be cross-tabulated for \texttt{UDP} by \texttt{Majority}, \texttt{UDP} by \texttt{Victim\_Race}), and \texttt{UDP} by \texttt{Majority} by \texttt{Victim\_Race}). With this, bar plots can be generated to assess how strongly each variable is related to the incidence of \acrshort{luof}s. Bringing in three dimensions to the analysis simultaneously can often illuminate a dynamic or interaction that otherwise goes unnoticed. For instance, there is often a question both in terms of how individuals are perceived based on ascription (race, gender, etc.), and other environmental factors, such as the racial composition of the neighborhood or forces of gentrification and how those might be related to a greater probability of being killed by law enforcement. Taking this three-way factor approach makes it possible to look at all these at the same time rather than in isolation.
+
+% Lastly, while I expect to find that class and gentrification indicators largely predict a greater incidence of \acrshort{luof}s than race alone, discrimination is also a causal force that does to some extent operate independently of economic factors, so I would expect some racial disparity to remain even after controlling for income and gentrification. In the final analysis, considering both how discrimination plays a role and how class and political economy have causal effects will enhance our understanding of the phenomenon.
+
 To test these hypotheses, tracts were categorized as majority-black, majority-white, or majority-Hispanic/Latino. “Majority” shall mean greater than 50 percent of the tract is one of the three aforementioned racial groups. Other races and ethnicities will not be included in this typology, though they will be included in the denominators in calculating proportions to determine if any one group constitutes a majority. Additionally, the race of the victim is specified in most of the entries in the Fatal Encounters data set of lethal uses of police force. Finally, all tracts were divided into quintiles based on their median household income. Initial calculations were done strictly using income quintiles. Per capita rates are calculated as follows:
 
 \begin{equation}
@@ -223,7 +229,14 @@ To test these hypotheses, tracts were categorized as majority-black, majority-wh
 \label{eq:quintile_rate}
 \end{equation}
 
-\noindent{}where \texttt{q} is the income quintile, \texttt{LUOF\_Count} is the number of \acrshort{luof}s that occurred in that income quintile, and \texttt{Population} is the total number of persons living in that particular income quintile. Per capita rates were annualized by dividing by six (the number of years in the study) and rescaled to a rate of “per 10 million.” Lethal use of force counts were then cross-tabulated for tract groups according to their respective income quintile and majority-race status: $\texttt{LUOF\_Count}_\texttt{mq}$, where \texttt{LUOF\_Count} is the total number of lethal uses of force that occurred in tracts with income quintile \texttt{q} and with a majority-race \texttt{m}, resulting in a table:
+\noindent{}where \texttt{q} is the income quintile, \texttt{LUOF\_Count} is the number of \acrshort{luof}s that occurred in that income quintile, and \texttt{Population} is the total number of persons living in that particular income quintile. Per capita rates were annualized by dividing by six (the number of years in the study) and rescaled to a rate of “per 10 million.” Lethal use of force counts were then cross-tabulated for tract groups according to their respective income quintile and majority-race status:
+
+\begin{equation}
+{Rate}_{qm}=\frac{{LUOF\_Count}_{qm}}{{Population}_{qm}}\times\frac{1}{6}\times10,000,000
+\label{eq:quintile_majority_rate}
+\end{equation}
+
+\noindent{}where \texttt{LUOF\_Count} is the total number of lethal uses of force that occurred in tracts with income quintile \texttt{q} and with majority-race \texttt{m}. The annualized per capita rates were calculated by dividing \texttt{LUOF\_Count} by six (the number of years in the study), dividing by the number of persons \texttt{Population} of race \texttt{m} living in income quintile \texttt{q}, and multiplying by 10 million, to obtain the annualized rate per 10 million. This resulted in the following table:
 
 \begin{table}[h]
 \centering
@@ -239,17 +252,6 @@ Q$_5$ &---&---&---\\
   \caption[LUOF Frequency: Majority-race and Income Quintile]{LUOF Frequency by Majority-race and Income Quintile.}
   \label{tab:luof_freq_majority_quintile}
 \end{table}
-
-Again, per capita rates were calculated by dividing \texttt{LUOF\_Count} by six (the number of years in the study), dividing by the number of persons of that particular race living in that particular income quintile, and multiplying by 10 million, to obtain the annualized rate per 10 million:
-
-\begin{equation}
-{Rate}_{qm}=\frac{{LUOF\_Count}_{qm}}{{Population}_{qm}}\times\frac{1}{6}\times10,000,000
-\label{eq:quintile_majority_rate}
-\end{equation}
-
-% The same scheme was employed to calculate the rates for the various gentrification typologies. First, rates were calculated for the Urban Displacement Project’s (\acrshort{udp}) gentrification typologies, \texttt{UDP}, without respect to the majority-race classification or the race of the victim. Then rates will be cross-tabulated for \texttt{UDP} by \texttt{Majority}, \texttt{UDP} by \texttt{Victim\_Race}), and \texttt{UDP} by \texttt{Majority} by \texttt{Victim\_Race}). With this, bar plots can be generated to assess how strongly each variable is related to the incidence of \acrshort{luof}s. Bringing in three dimensions to the analysis simultaneously can often illuminate a dynamic or interaction that otherwise goes unnoticed. For instance, there is often a question both in terms of how individuals are perceived based on ascription (race, gender, etc.), and other environmental factors, such as the racial composition of the neighborhood or forces of gentrification and how those might be related to a greater probability of being killed by law enforcement. Taking this three-way factor approach makes it possible to look at all these at the same time rather than in isolation.
-
-% Lastly, while I expect to find that class and gentrification indicators largely predict a greater incidence of \acrshort{luof}s than race alone, discrimination is also a causal force that does to some extent operate independently of economic factors, so I would expect some racial disparity to remain even after controlling for income and gentrification. In the final analysis, considering both how discrimination plays a role and how class and political economy have causal effects will enhance our understanding of the phenomenon.
 
 \section{LITERATURE REVIEW}\
 
@@ -325,11 +327,11 @@ One question that remained was that since blacks and Latinos have higher poverty
 
 \section{FINDINGS}
 
-A list of lethal uses of force was downloaded from the Fatal Encounters website. The years under analysis for this project were 2015 through 2020, inclusive. Using R’s ‘tidycensus’ package, census tract-level data for all tracts in the United States were downloaded and matched with the latitude and longitude of where a lethal use of force (LUOF) occurred. Incidents that were on the border of more than one census tract were excluded from the analysis because it is impossible to determine which tract the \. This typically happens when the incident occurs on a road or highway that divides two or more tracts.
+A list of lethal uses of force was downloaded from the Fatal Encounters website. The years under analysis for this project were 2015 through 2020, inclusive. Using R’s ‘tidycensus’ package, census tract-level data for all tracts in the United States were downloaded and matched with the latitude and longitude of where a lethal use of force (LUOF) occurred. Incidents that occurred on the border of more than one census tract were excluded from the analysis because it is impossible to determine which tract the LUOF actually occurred in. This typically happens when the incident occurs on a road or highway that divides two or more tracts.
 
 \subsection{Rates by Race and Ethnicity}
 
-As it is well-understood, majority-black and Latino neighborhoods experience higher rates of LUOF than majority-white neighborhoods. Data collected for this study confirm this. Indeed, majority-black neighborhoods experience a rate nearly twice that of majority-white neighborhoods. Majority-Hispanic/Latino neighborhoods experience a rate 1.75 times greater
+As is well understood, majority-black and Latino neighborhoods experience higher rates of LUOF than majority-white neighborhoods. Data collected for this study confirm this. Indeed, majority-black neighborhoods experience a rate nearly twice that of majority-white neighborhoods. Majority-Hispanic/Latino neighborhoods experience a rate 1.75 times greater
 
 \begin{figure}[H]
   \centering % width=\linewidth, height=0.4\textheight
@@ -341,11 +343,11 @@ As it is well-understood, majority-black and Latino neighborhoods experience hig
 
 \noindent{}than majority-white neighborhoods (\autoref{fig:race_ethnicity}).
 
-One possible explanation for the racial disparities is that blacks and Latinos are policed heavily, regardless of how well-off the tract is. A good amount of literature would seem to support this. Many studies have found discriminatory practices within police departments, and there have been many documented incidents of black professionals being harassed by law enforcement, often for rather arbitrary violations. From that perspective, discriminatory practices may largely account for the racial disparities that affect black Americans regardless of their class position. Another possible explanation for these racial disproportions is that blacks and Latinos also disproportionately live in lower-income neighborhoods that are more heavily policed for reasons discussed earlier. From this perspective, the racial disparities may largely be a function of class position and the way poor and working-class neighborhoods are policed. Of course, these explanations are not mutually exclusive; racial discrimination probably does play some part in generating these racial disparities, while the way the poor are policed could also contribute to the incidence of LUOF. However, it is worth examining the variation within majority one-race census tracts by household income quintiles to see how much of the disparity disappears once household income is introduced into the analysis.
+One possible explanation for the racial disparities is that blacks and Latinos are policed heavily, regardless of how well-off the tract is. A good amount of literature would seem to support this. Many studies have found discriminatory practices within police departments, and there have been many documented incidents of black professionals being harassed by law enforcement, often for rather arbitrary violations. From that perspective, discriminatory practices may largely account for the racial disparities that affect black Americans regardless of their class position. Another possible explanation for these racial disproportions is that blacks and Latinos also disproportionately live in lower-income neighborhoods that are more heavily policed, for reasons discussed earlier. From this perspective, the racial disparities may largely be a function of class position and the way poor and working-class neighborhoods are policed. Of course, these explanations are not mutually exclusive; racial discrimination probably does play some part in generating these racial disparities, while the way the poor are policed could also contribute to the incidence of LUOF. However, it is worth examining the variation within majority one-race census tracts by household income quintiles to see how much of the disparity disappears once household income is introduced into the analysis.
 
 \subsection{Median Household Income}
 
-The American Community Survey (ACS) provides median household income values for each tract. For this analysis, US census tracts were binned into quintiles based on the distribution of median household income across all US census tracts. Initial analyses show that median household income has a strong relationship with the rate of LUOF (\autoref{fig:income_quintile}). Indeed, LUOFs occur at the greatest frequency in the lowest-income tracts. The lowest household income quintile tracts experience a rate over four times that of the highest household income tracts.
+The American Community Survey (ACS) provides median household income values for each tract. For this analysis, the US census tracts were classified into quintiles based on the distribution of median household income across all US census tracts. Initial analyses show that median household income has a strong relationship with the rate of LUOF (\autoref{fig:income_quintile}). Indeed, LUOFs occur with the highest frequency in the lowest-income tracts. The lowest household income quintile tracts experience a rate over four times that of the highest household income tracts.
 
 \begin{figure}[H]
   \centering % width=\linewidth, height=0.4\textheight
@@ -357,7 +359,7 @@ The American Community Survey (ACS) provides median household income values for 
 
 \subsection{Majority One Race}
 
-How then does the analysis look when both race and income are introduced as variables? An initial look at the bar plots by majority-one-race in a census tract and income quintiles, the same ones shown earlier, placed on the same axis offers some useful insights. The plots from earlier are provided again, this time side-by-side on the same scale for easier cross-comparisons. Without looking at their interactions, we can see that the fourth and fifth-quintile census tracts experience a lower rate of LUOFs than any of the racial or ethnic groups. At the same time, both majority-black and majority-Latino census tracts experienced greater rates than all income quintiles except the first or lowest income quintile.
+What then does the analysis look like when both race and income are introduced as variables? An initial look at the bar plots by majority-one-race in a census tract and income quintiles offers some useful insights. The plots from earlier are provided again, this time side-by-side on the same scale for easier cross-comparisons. Without looking at their interactions, we can see that the fourth and fifth-quintile census tracts experience a lower rate of LUOFs than any of the racial or ethnic groups. At the same time, both majority-black and majority-Latino census tracts experienced higher rates than all income quintiles except the first or lowest income quintile.
 
 \begin{figure}[H]
   \centering % width=\linewidth, height=0.4\textheight
@@ -367,7 +369,7 @@ How then does the analysis look when both race and income are introduced as vari
   \label{fig:combined}
 \end{figure}
 
-However, this analysis is inadequate because it does not tell us about the interactions between the variables. In analyzing their interactions, one finds that the general trend of the lowest income quintiles experiencing the highest rates of LUOFs holds. A bar plot (\autoref{fig:majority_income_interactions}) showing the variation within racial and ethnic groups indicates that there is substantial variation by income quintile within racial and ethnic groups. For all racial and ethnic groups, the lowest income quintile had the greatest rate of LUOFs. The difference in the rate between the first and second quintile is substantial for majority black and Latino census tracts. MajorityHispanic/Latino tracts had the highest rate in the second- and third-income quintiles. As noted earlier, both the majority white and majority black census tracts experienced the lowest rates of police LUOF in the highest income quintiles.
+However, this analysis is inadequate because it does not tell us about the interactions between the variables. In analyzing their interactions, one finds that the general trend of the lowest-income quintiles experiencing the highest rates of LUOFs holds. A bar plot (\autoref{fig:majority_income_interactions}) showing the variation within the racial and ethnic groups indicates that there is substantial variation by income quintile within the racial and ethnic groups. For all racial and ethnic groups, the lowest income quintile had the greatest rate of LUOFs. The difference in the rate between the first and second quintile is substantial for the majority black and Latino census tracts. Majority Hispanic/Latino tracts had the highest rate in the second and third income quintiles. As noted earlier, both the majority-white, and majority-black census tracts experienced the lowest rates of police LUOF in the highest income quintiles.
 
 \begin{figure}[H]
   \centering % width=\linewidth, height=0.4\textheight
@@ -377,18 +379,18 @@ However, this analysis is inadequate because it does not tell us about the inter
   \label{fig:majority_income_interactions}
 \end{figure}
 
-Given that so many LUOFs occur in the lowest census tract income quintile, it is helpful to examine what the distribution looks like within that quintile. To accomplish this, the lowest quintile was divided into terciles. Tracts were binned into 15 quantiles; the lower three are equivalent to the terciles of the lowest quintile. Interestingly, there is not a sharp skew to the distributions within the quintiles. To be sure, the lowest terciles experienced the highest rate across all groups, with the distribution among majority-black tracts being the most-skewed toward the lowest tertile, but the differences in rates of LUOFs between terciles are not nearly as great as they are between quintiles.
+% Given that so many LUOFs occur in the lowest census tract income quintile, it is helpful to examine what the distribution looks like within that quintile. To accomplish this, the lowest quintile was divided into terciles. Tracts were binned into 15 quantiles; the lower three are equivalent to the terciles of the lowest quintile. Interestingly, there is not a sharp skew to the distributions within the quintiles. To be sure, the lowest terciles experienced the highest rate across all groups, with the distribution among majority-black tracts being the most-skewed toward the lowest tertile, but the differences in rates of LUOFs between terciles are not nearly as great as they are between quintiles.
 
 \subsection{Logistic Regression: Income Only}
 
 Because categorizing tracts into majority-one-race tracts sets an arbitrary threshold for inclusion/exclusion from the category, using the proportion of race x living in y tract overcomes this because the proportions are continuous. This allows us to analyze the racial composition of the tract in a more granular way that categorical approaches might flatten out or overlook. For purposes of the logistic regressions, median household income is the independent variable, and the dependent variable is a binary variable indicating whether a LUOF occurred between 2015 and 2020 in the census tract. The initial regression included only median household income as a predictor to establish a baseline for understanding the effect of income on the probability of being killed by law enforcement. The equation for the regression is:
 \begin{equation}
-\text{logit}(LUOF_{i})=\beta_{0} + \beta_{1} \times income1k_{i} + \epsilon_{i}
+\text{logit}(LUOF_{i})=\beta_{0} + \beta_{1} \times income10k_{i} + \epsilon_{i}
 \end{equation}
 
-\noindent{}where \textit{i} is a census tract; \textit{LUOF} is a binary variable indicating whether a LUOF occurred; and \textit{Income}1\textit{k} is the median household income in thousands of dollars.
+\noindent{}where \textit{i} is a census tract; \textit{LUOF} is a binary variable indicating whether a LUOF occurred; and \textit{Income}10\textit{k} is the median household income in tens of thousands of dollars.
 
-Regression results show a negative relationship between income and the probability of a tract experiencing at least one LUOF during the period (\autoref{tab:income_logit}). A plot of the predicted probabilities indicates a strong curvilinear relationship, with the probability being most pronounced in tracts with incomes of \$50 thousand or less, and the curve flattens somewhat around \$200 thousand. Exponentiating the coefficient results in 0.9868 ($e^{-0.013265}$~=~0.986823), meaning that for every one thousand dollars in median household income, the odds of a census tract experiencing at least one LUOF declines by 1.32 percent (1~-~0.9868~=~0.0132).
+The regression results show a negative relationship between income and the probability that a tract experienced at least one LUOF during the period (\autoref{tab:income_logit}). A plot of the predicted probabilities indicates a strong curvilinear relationship, with the probability being most pronounced in tracts with incomes of \$50 thousand or less, and the curve flattens somewhat around \$200 thousand. Exponentiating the coefficient results in 0.8758 ($e^{-0.13265}$~=~0.8758), meaning that for every ten thousand dollars in median household income, the odds of a census tract experiencing at least one LUOF declines by 12.42 percent (1~--~0.8758~=~0.1242).
 
 \begin{table}[h!]
 \centering
@@ -397,7 +399,7 @@ Regression results show a negative relationship between income and the probabili
 Variable & Coefficient & Std. Err. & Z-score & P-value & 95\% Conf. Interval \\
 \midrule
 Intercept & -1.636736 & 0.03197 & -51.19 & $<$0.0001 & -1.6994, -1.5741 \\
-Income (\$1k) & -0.013265 & 0.00049 & -27.08 & $<$0.0001 & -0.0142, -0.0123 \\
+Income (\$10k) & -0.13265 & 0.0049 & -27.08 & $<$0.0001 & -0.1423, -0.1231 \\
 \bottomrule
 \end{tabular}
 \caption{Losistic Regression Results for Median Household Income}
