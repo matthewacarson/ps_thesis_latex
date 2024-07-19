@@ -96,18 +96,22 @@
   \pagenumbering{gobble}
 %  \fancyhead[L]{Running head: \myTitle}
   \renewcommand{\headrulewidth}{0pt} % header rule
+  {
   \centering
   \vspace*{2in}
   The Policing of the ``Reserve Army'':\par
-  Economic Inequality and Police Killings\par
+  Economic Inequality and Police Killings*\par
   \vspace{1.2in}
   {Matthew A. Carson\par}
   \vspace{12pt}
   Department of Political Science\par
   University of California, Los Angeles\par
   \vspace{0.5in}
-  {March 22, 2024\par}
-%  \vfill
+  {July 18, 2024\par}
+  }
+ \vfill
+ \noindent{}*This is an abbreviated and revised version of a political science departmental honors thesis completed during the author's senior year at UCLA.
+ \vspace{6pt}
 %  \wordcount
 \end{titlepage}
 
@@ -222,36 +226,6 @@ $\textbf{H}_1$: &\acrshort{luof} rates should vary more substantially by income 
 
 % Lastly, while I expect to find that class and gentrification indicators largely predict a greater incidence of \acrshort{luof}s than race alone, discrimination is also a causal force that does to some extent operate independently of economic factors, so I would expect some racial disparity to remain even after controlling for income and gentrification. In the final analysis, considering both how discrimination plays a role and how class and political economy have causal effects will enhance our understanding of the phenomenon.
 
-To test these hypotheses, tracts were categorized as majority-black, majority-white, or majority-Hispanic/Latino. “Majority” shall mean greater than 50 percent of the tract is one of the three aforementioned racial groups. Other races and ethnicities will not be included in this typology, though they will be included in the denominators in calculating proportions to determine if any one group constitutes a majority. Additionally, the race of the victim is specified in most of the entries in the Fatal Encounters data set of lethal uses of police force. Finally, all tracts were divided into quintiles based on their median household income. Initial calculations were done strictly using income quintiles. Per capita rates are calculated as follows:
-
-\begin{equation}
-{Rate}_q=\frac{{LUOF\_Count}_q}{{Population}_q}\times\frac{1}{6}\times10,000,000
-\label{eq:quintile_rate}
-\end{equation}
-
-\noindent{}where \texttt{q} is the income quintile, \texttt{LUOF\_Count} is the number of \acrshort{luof}s that occurred in that income quintile, and \texttt{Population} is the total number of persons living in that particular income quintile. Per capita rates were annualized by dividing by six (the number of years in the study) and rescaled to a rate of “per 10 million.” Lethal use of force counts were then cross-tabulated for tract groups according to their respective income quintile and majority-race status:
-
-\begin{equation}
-{Rate}_{qm}=\frac{{LUOF\_Count}_{qm}}{{Population}_{qm}}\times\frac{1}{6}\times10,000,000
-\label{eq:quintile_majority_rate}
-\end{equation}
-
-\noindent{}where \texttt{LUOF\_Count} is the total number of lethal uses of force that occurred in tracts with income quintile \texttt{q} and with majority-race \texttt{m}. The annualized per capita rates were calculated by dividing \texttt{LUOF\_Count} by six (the number of years in the study), dividing by the number of persons \texttt{Population} of race \texttt{m} living in income quintile \texttt{q}, and multiplying by 10 million, to obtain the annualized rate per 10 million. This resulted in the following table:
-
-\begin{table}[h]
-\centering
-\begin{tabular}{cccc} %{matrix}
-Income&Black&Latino&White\\
-Q$_1$ &---&---&---\\
-Q$_2$ &---&---&---\\
-Q$_3$ &---&---&---\\
-Q$_4$ &---&---&---\\
-Q$_5$ &---&---&---\\
-\end{tabular}
-  \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
-  \caption[LUOF Frequency: Majority-race and Income Quintile]{LUOF Frequency by Majority-race and Income Quintile.}
-  \label{tab:luof_freq_majority_quintile}
-\end{table}
 
 \section{LITERATURE REVIEW}\
 
@@ -325,7 +299,38 @@ One question that remained was that since blacks and Latinos have higher poverty
 
 %The city had been targeting the Elliot Avenue home for months for criminal activity. One of the arrestees at the address was Jamarcus Glover, a convicted felon with a long history of trafficking and drug-related arrests. After notifying the landlord, Gerald Happle, that the criminal activity there constituted a “public nuisance,” Happle wrote back that “he would evict the tenants if they could not work out a solution and asked if the city has ‘any program to purchase or accept donations of problem properties’” (Duvall, Kachmar, and Costello 2020). After a phone call with Happle concerning the matter, a code enforcement officer “wrote in an email to all five police officers of the PBI unit that if further illegal activity occurs, ‘he will then donate the property to Metro after evicting the tenant’” (Duvall, Kachmar, and Costello 2020). Shortly thereafter, the police department obtained five no-knock warrants, of which Breonna Taylor’s home and the Elliot Avenue home were included. Glover was again arrested at the Elliot Avenue home; the following day, the city notified Happle that the cited had now officially deemed the property a public nuisance. Happle agreed to donate the property to the city the following day and turned in the application on April 6, 2020. June 5th, on what would have been Taylor’s 27\textsuperscript{th} birthday, Happle signed over the deed to the city for one dollar. These examples show how business and real estate interests can exacerbate how police power is mobilized in concert with those interests.
 
-\section{FINDINGS}
+\section{ANALYSIS AND FINDINGS}\
+
+To test these hypotheses, tracts were categorized as majority-black, majority-white, or majority-Hispanic/Latino. “Majority” shall mean greater than 50 percent of the tract is one of the three aforementioned racial groups. Other races and ethnicities will not be included in this typology, though they will be included in the denominators in calculating proportions to determine if any one group constitutes a majority. Additionally, the race of the victim is specified in most of the entries in the Fatal Encounters data set of lethal uses of police force. Finally, all tracts were divided into quintiles based on their median household income. Initial calculations were done strictly using income quintiles. Per capita rates are calculated as follows:
+
+\begin{equation}
+{Rate}_q=\frac{{LUOF\_Count}_q}{{Population}_q}\times\frac{1}{6}\times10,000,000
+\label{eq:quintile_rate}
+\end{equation}
+
+\noindent{}where \texttt{q} is the income quintile, \texttt{LUOF\_Count} is the number of \acrshort{luof}s that occurred in that income quintile, and \texttt{Population} is the total number of persons living in that particular income quintile. Per capita rates were annualized by dividing by six (the number of years in the study) and rescaled to a rate of “per 10 million.” Lethal use of force counts were then cross-tabulated for tract groups according to their respective income quintile and majority-race status:
+
+\begin{equation}
+{Rate}_{qm}=\frac{{LUOF\_Count}_{qm}}{{Population}_{qm}}\times\frac{1}{6}\times10,000,000
+\label{eq:quintile_majority_rate}
+\end{equation}
+
+\noindent{}where \texttt{LUOF\_Count} is the total number of lethal uses of force that occurred in tracts with income quintile \texttt{q} and with majority-race \texttt{m}. The annualized per capita rates were calculated by dividing \texttt{LUOF\_Count} by six (the number of years in the study), dividing by the number of persons \texttt{Population} of race \texttt{m} living in income quintile \texttt{q}, and multiplying by 10 million, to obtain the annualized rate per 10 million. This resulted in the following table:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{cccc} %{matrix}
+Income&Black&Latino&White\\
+Q$_1$ &---&---&---\\
+Q$_2$ &---&---&---\\
+Q$_3$ &---&---&---\\
+Q$_4$ &---&---&---\\
+Q$_5$ &---&---&---\\
+\end{tabular}
+  \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
+  \caption[LUOF Frequency: Majority-race and Income Quintile]{LUOF Frequency by Majority-race and Income Quintile.}
+  \label{tab:luof_freq_majority_quintile}
+\end{table}
 
 A list of lethal uses of force was downloaded from the Fatal Encounters website. The years under analysis for this project were 2015 through 2020, inclusive. Using R’s ‘tidycensus’ package, census tract-level data for all tracts in the United States were downloaded and matched with the latitude and longitude of where a lethal use of force (LUOF) occurred. Incidents that occurred on the border of more than one census tract were excluded from the analysis because it is impossible to determine which tract the LUOF actually occurred in. This typically happens when the incident occurs on a road or highway that divides two or more tracts.
 
@@ -392,20 +397,6 @@ Because categorizing tracts into majority-one-race tracts sets an arbitrary thre
 
 The regression results show a negative relationship between income and the probability that a tract experienced at least one LUOF during the period (\autoref{tab:income_logit}). A plot of the predicted probabilities indicates a strong curvilinear relationship, with the probability being most pronounced in tracts with incomes of \$50 thousand or less, and the curve flattens somewhat around \$200 thousand. Exponentiating the coefficient results in 0.8758 ($e^{-0.13265}$~=~0.8758), meaning that for every ten thousand dollars in median household income, the odds of a census tract experiencing at least one LUOF declines by 12.42 percent (1~--~0.8758~=~0.1242).
 
-\begin{table}[h!]
-\centering
-\begin{tabular}{lcccccc}
-\toprule
-Variable & Coefficient & Std. Err. & Z-score & P-value & 95\% Conf. Interval \\
-\midrule
-Intercept & -1.636736 & 0.03197 & -51.19 & $<$0.0001 & -1.6994, -1.5741 \\
-Income (\$10k) & -0.13265 & 0.0049 & -27.08 & $<$0.0001 & -0.1423, -0.1231 \\
-\bottomrule
-\end{tabular}
-\caption{Losistic Regression Results for Median Household Income}
-\label{tab:income_logit}
-\end{table}
-
 \begin{figure}[H]
   \centering % width=\linewidth, height=\textheight
   \includegraphics[width=\linewidth]{images/LUOF_logit_income_only}
@@ -413,6 +404,54 @@ Income (\$10k) & -0.13265 & 0.0049 & -27.08 & $<$0.0001 & -0.1423, -0.1231 \\
   \caption[Predicted Probability of a LUOF (Income Only)]{Predicted Probability of a LUOF (Income Only).}
   \label{fig:logit_income_plot}
 \end{figure}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Variable} & \textbf{Coef.} & \textbf{Std. err.} & \textbf{Z-score} & \textbf{P-value} & \textbf{95\% Conf. Interval} \\
+\midrule
+Income (\$10k) & -0.13265 & 0.0049 & -27.08 & $<$0.0001 & -0.1423, -0.1231 \\
+Intercept & -1.636736 & 0.03197 & -51.19 & $<$0.0001 & -1.6994, -1.5741 \\
+\bottomrule
+\end{tabular}
+\caption{Losistic Regression Results for Median Household Income}
+\label{tab:income_logit}
+\end{table}
+
+\section{BIVARIATE LOGISTIC REGRESSIONS: RACE/ETHNICITY}\
+
+Having established that income is a substantial predictor of whether a LUOF has occurred, logistic regressions were run for each racial/ethnic group to establish to what extent tracts that have a greater proportion of a particular group are more or less likely to have experienced at least one LUOF. The regression equation is:
+
+\begin{equation}
+\text{logit}(LUOF_{i})=\beta_{0} + \beta_{1} \times Proportion_{i} + \epsilon_{i}
+\end{equation}
+
+\noindent{}where \texttt{i} is a census tract; \texttt{Proportion} is the proportion of the racial or ethnic group living in the \texttt{i}$^\text{th}$ census tract. Three separate regressions were run, one for the proportion black, one for the proportion Hispanic/Latino, and one for the proportion white.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Model 1} & \textbf{Coef.} & \textbf{Std. err.} & \textbf{Z-score} & \textbf{P-value} & \textbf{95\% Conf. Interval} \\
+\midrule
+Black Proportion & 0.656 & 0.055 & 11.860 & $<$0.0001 & 0.548, 0.764 \\
+Intercept & -2.585 & 0.016 & -164.860 & $<$0.0001 & -2.616, -2.554 \\
+\midrule
+\textbf{Model 2} & \textbf{Coef.} & \textbf{Std. err.} & \textbf{Z-score} & \textbf{P-value} & \textbf{95\% Conf. Interval} \\
+\midrule
+White Proportion & -0.927 & 0.042 & -22.130 & $<$0.0001 & -1.009, -0.845 \\
+Intercept & -1.959 & 0.026 & -75.220 & $<$0.0001 & -2.010, -1.908 \\
+\midrule
+\textbf{Model 3} & \textbf{Coef.} & \textbf{Std. err.} & \textbf{Z-score} & \textbf{P-value} & \textbf{95\% Conf. Interval} \\
+\midrule
+Latino Proportion & 1.016 & 0.051 & 19.760 & $<$0.0001 & 0.915, 1.117 \\
+Intercept & -2.686 & 0.017 & -156.600 & $<$0.0001 & -2.720, -2.653 \\
+\bottomrule
+\end{tabular}
+\caption{Logit Tables -- Racial Proportions}
+\end{table}
+
 
 
 
