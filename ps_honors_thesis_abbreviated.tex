@@ -31,6 +31,7 @@
 %%%% List of Acronyms and abbreviations %%%%
 
 \newacronym{acs}{ACS}{American Community Survey}
+\newacronym{ame}{AME}{average marginal effects}
 \newacronym{udp}{UDP}{Urban Displacement Project}
 \newacronym{luof}{LUOF}{lethal use of force}
 \newacronym{ice}{ICE}{Index of Concentration at the Extremes}
@@ -419,7 +420,7 @@ Intercept & -1.636736 & 0.03197 & -51.19 & $<$0.0001 & -1.6994, -1.5741 \\
 \label{tab:income_logit}
 \end{table}
 
-\section{BIVARIATE LOGISTIC REGRESSIONS: RACE/ETHNICITY}\
+\subsection{Bivariate Logistic Regressions: Race/Ethnicity}\
 
 Having established that income is a substantial predictor of whether a LUOF has occurred, logistic regressions were run for each racial/ethnic group to establish to what extent tracts that have a greater proportion of a particular group are more or less likely to have experienced at least one LUOF. The regression equation is:
 
@@ -463,9 +464,18 @@ Intercept & -2.686 & 0.017 & -156.600 & $<$0.0001 & -2.720, -2.653 \\
 
 \autoref{fig:logit_race_propor} shows that tracts with a greater proportion of blacks and Hispanics/Latinos have a greater probability of having experienced a \acrfull{luof}. Tracts with a high incidence of Latinos have a higher probability of experiencing a \acrshort{luof} than the tracts with the highest incidence of black residents. In addition, the probability of tracts with larger non-white proportions also have a higher probability of experiencing at least one \acrshort{luof}. The probabilities are nearly identical for tracts that are 100 percent non-white and those that are 100 percent black tracts.
 
-So, both the income and the racial composition of a neighborhood have a relationship with the probability of a LUOF. Next, regressions with both the racial composition and the median household income were run. This helps establish how much of an effect income has on the probability of a fatal encounter based on the proportion of each racial/ethnic group in the census tract. Marginal effects were calculated and plotted \autoref{fig:ame_race_by_income}
+So, both the income and the racial composition of a neighborhood have a relationship with the probability of a LUOF. Next, regressions with both the racial composition and the median household income were run. This helps establish how much of an effect income has on the probability of a fatal encounter based on the proportion of each racial/ethnic group in the census tract. Marginal effects were calculated and plotted (\autoref{fig:ame_race_by_income}) using the following model:
 
-\begin{figure}[h]
+\begin{equation}
+logit(LUOF) = \beta_0 + \beta_1 \text{Income10k}_i + \beta_2 \text{Proportion}_i + \beta_3 (\text{Income10k}_i \ast \text{Proportion}_i) + \varepsilon_i
+\label{eq:logit_interaction}
+\end{equation}
+
+where \texttt{i} is a census tract; \texttt{Income10k} is the median household income in tens of thousands of dollars in the \texttt{i}$^\text{th}$ census tract; and \texttt{Proportion} is the proportion of the racial or ethnic group living in the \texttt{i}$^\text{th}$ census tract. Again, three separate regressions were run, one for each racial/ethnic group.
+
+\autoref{fig:ame_race_by_income} shows that the \gls{ame} of the racial proportion on the probability of a \acrshort{luof} was greatest for Latinos and non-whites in general, especially in the lowest income tracts. Somewhat surprisingly, the lowest income Latino tracts did not experience the greatest \acrshort{ame} from their higher Latino composition; rather, it is the tracts between \$50 thousand and \$100 thousand that experienced the greatest increase in the probability of \acrshort{luof} as the proportion of Latinos increased. Also, in contrast to folk wisdom, the difference in \acrshort{luof} probability between a tract with zero percent black and 100 percent black composition only appeared in the lower income black census tracts. In other words, high income tracts with larger proportions of blacks were no more likely to experience at least one \acrshort{luof} than high income tracts with small proportions of blacks.
+
+\begin{figure}[H]
   \centering
   \includegraphics[width=\linewidth]{images/ame_race_by_income}
   \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
@@ -473,6 +483,23 @@ So, both the income and the racial composition of a neighborhood have a relation
   \label{fig:ame_race_by_income}
 \end{figure}
 
+\subsection{Race of Victim}\
+
+For robustness, an analysis by race of the victim was also conducted. Using the Fatal Encounters dataset, I constructed a frequency table of the number of LUOFs of victims by race. Contributors to Fatal Encounters imputed a small percentage of these observations (< 9\% imputed). The distribution across racial groups in this six-year period shows that nearly half of those killed by law enforcement are white; slightly more than 25 percent are black; and approximately 18 percent of those killed by law enforcement are Latino/Hispanic. However, there is a disparity between whites and blacks. Blacks comprise 25 percent of those killed by law enforcement, while their incidence in the broader population is only about 13 percent. On the other hand, whites are killed by law enforcement at a rate slightly less than their incidence in the broader population. At the same time, it is worth a closer look at how the LUOF victims are distributed across tract income quintiles within each racial group.
+
+{\color{red}[Count by race and ethnicity plot.]}
+
+Each racial group is distributed differently across income quintiles. For example, blacks and Latinos live disproportionately in lower-income tracts, and whites live disproportionately in higher-income tracts. A count of all persons of each race living in each census tract income quintile was performed. A plot showing the distribution of each racial group {\color{red}(Figure 10)} shows that blacks and Latinos generally live in lower-income tracts than whites. For example, 37 percent of blacks live in the lowest income quintile, while only 12 percent of whites live in that same quintile. Latinos tend to live in lower-income census tracts than whites, but the disparity is not as sharp: 23 percent of Latinos live in the lowest census tract income quintile.
+
+{\color{red} Figure 10: Race/Ethnicity Across Tract Income Quintiles}
+
+Analyses of the distribution of LUOF victims by race and income support similar conclusions to the analysis using majority-one-race in a census tract as a factor, with some exceptions. A relationship between tract median household income quintiles and the proportion of each racial or ethnic group killed within each tract income quintile exists. For example, 47.6 percent of black Americans who were killed by law enforcement were killed in the lowest income quintile of census tracts; just over 20 percent were killed in tracts in the second income quintile. There is the same relationship across all tracts where blacks were killed: the higher the income quintile, the lower the proportion. Only 6.7 percent of blacks were killed in the lowest-income census tracts. Latinos/Hispanics showed a similar trend, with 32.2 percent of all Latinos being killed in the lowest income quintile census tracts and only 9.9 percent killed in the highest income quintile. Interestingly, the largest proportion of whites were not killed in the lowest-income quintile tracts, but in the second-lowest-income quintile tracts.
+
+{\color{red}Figure 11: Proportion of Each Race Killed in Each Income Quintile}
+
+Comparisons between each race’s population distribution across income quintiles and each race’s distribution of LUOFs across income quintiles reveal an interesting disparity. For example, while 36.7 percent of blacks live in the lowest income quintile, 47.6 percent of blacks killed by law enforcement were killed in tracts in the lowest income quintile. The same disproportionate trend holds for every other race/ethnicity: 22.8 percent of Latinos live in the lowest income quintile tracts, but 32.2 percent of Latinos killed by law enforcement were killed in the lowest income quintile tracts, and 11.8 percent of whites live in tracts in the lowest income quintile, but 23.5 percent of whites killed by law enforcement were killed in the lowest income quintile tracts.
+
+{\color{red}Table 7} places these data side-by-side, providing a visualization of how the two distributions in {\color{red}Figure 10 and Figure 11} differ. If the data bars were exactly the same across each row, it would indicate that the distribution of the racial group population across income quintiles is the same as the distribution of LUOFs within each group. But this is not the case. Moreover, Blacks and Latinos experience the greatest share of LUOFs in the lowest income quintile, greater than their incidence in that quintile. As noted earlier, there is an anomaly; slightly more whites— 25.3 percent—were killed in the second income quintile tracts than in the lowest income quintile—23.5 percent. Notwithstanding this anomaly, there is still a striking disparity between the proportion of whites living in the lowest-income tracts and the proportion of whites killed in those tracts.
 
 \section{CONCLUSION}\
 
