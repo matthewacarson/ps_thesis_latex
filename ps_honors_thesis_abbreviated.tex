@@ -5,7 +5,7 @@
 \usepackage[english]{babel}
 \usepackage{color}
 \usepackage{xurl}
-\usepackage{hyperref}
+\usepackage[hidelinks]{hyperref}
 \usepackage[citestyle=authoryear, bibstyle=authoryear, sorting=nyt]{biblatex}
 \usepackage{caption}
 \usepackage{etoolbox}
@@ -32,7 +32,7 @@
 
 \newacronym{acs}{ACS}{American Community Survey}
 \newacronym{udp}{UDP}{Urban Displacement Project}
-\newacronym{luof}{LUOF}{Lethal Use of Force}
+\newacronym{luof}{LUOF}{lethal use of force}
 \newacronym{ice}{ICE}{Index of Concentration at the Extremes}
 \newacronym{poc}{PoC}{People of Color}
 
@@ -184,13 +184,13 @@ Earlier that year, in an interview with CNN’s Wolf Blitzer, Senator Sanders wa
 [I]n the neighborhood where this gentleman [Freddie Gray] lives [\textit{sic}], as I understand it, the unemployment rate is over 50 percent, over 50 percent. What we have got to do as a nation is understand that we have got to create millions of jobs to put people back to work to make sure that kids are in schools and not in jails. So, short term, we've got to make sure that police officers have cameras. We've got to make sure that we have real police reform so that suspects are treated with respect. Long term, we've got to make sure that our young people are working; they're in school; they're not hanging out on street corners. (\cite{sandersInterviewWolfBlitzer2015})
 \end{quote}
 
-That is, for Sanders, people being killed by law enforcement is inextricably tied with unemployment and economic inequality: Those residents in Freddie Gray’s neighborhood had little economic opportunity, which meant that they would frequently “hang out on street corners” and come into contact with police, often with deadly consequences. This was in contradistinction to the claims of activists like Marissa Johnson, who saw the issue primarily as a function of racism and white supremacy.
+That is, for Sanders, people being killed by law enforcement is inextricably tied with unemployment and economic inequality: Those residents of Freddie Gray's neighborhood had little economic opportunity, which meant that they would frequently “hang out on street corners” and come into contact with police, often with deadly consequences. This was in contrast to the claims of activists such as Marissa Johnson, who saw the issue primarily as a function of racism and white supremacy.
 
 This project aims to answer this question. Of course, racial discrimination and economic inequality are not mutually exclusive, and this project does not suggest such a view. However, these two contrasting perspectives vis-à-vis police violence are worth exploring further. As I will contend, while African Americans are indeed disproportionately targeted and killed by law enforcement, the phenomenon is also much broader and affects many low-income people more generally. As researchers who are attempting to better understand the phenomenon, it is imperative that we not only understand the racial disparity frame of reference but also the role of economic inequality.
 
 \subsection{Background}\
 
-From a disciplinary perspective, Political Science has not adequately researched issues of policing and incarceration (a related phenomenon). In their 2017 article, “Police Are Our Government: Politics, Political Science, and the Policing of Race–Class Subjugated Communities,” in the \textit{Annual Review of Political Science}, Joe Soss and Velsa Weaver highlighted how the discipline has failed to “heed the call” for greater research on the issues concerning policing (\citeyear[568]{sossPoliceAreOur2017}). Consequently, the discipline “continues to offer a distorted portrait of democracy and government in America and a deeply incomplete view of how politics and power operate in RCS [race and class subjugated] communities” (\cite[568]{sossPoliceAreOur2017}). Significantly, the authors call on the discipline to more closely examine the state’s second face: “the activities of governing institutions and officials that exercise social control and encompass various modes of coercion, containment, repression, surveillance, regulation, predation, discipline, and violence” (\cite[567]{sossPoliceAreOur2017}). It is in this spirit that this paper proceeds, as an undertaking aimed at better understanding these dynamics.
+From a disciplinary perspective, Political Science has not adequately researched issues of policing and incarceration (a related phenomenon). In their 2017 article, “Police Are Our Government: Politics, Political Science, and the Policing of Race–Class Subjugated Communities,” in the \textit{Annual Review of Political Science}, Joe Soss and Velsa Weaver highlighted how the discipline has failed to “heed the call” for greater research on the issues concerning policing (\citeyear[568]{sossPoliceAreOur2017}). Consequently, the discipline “continues to offer a distorted portrait of democracy and government in America and a deeply incomplete view of how politics and power operate in RCS [race and class subjugated] communities” (\cite[568]{sossPoliceAreOur2017}). Significantly, the authors call on the discipline to examine the second face of the state more closely: ``the activities of governing institutions and officials that exercise social control and encompass various modes of coercion, containment, repression, surveillance, regulation, predation, discipline, and violence” (\cite[567]{sossPoliceAreOur2017}). It is in this spirit that this paper proceeds, as an undertaking aimed at better understanding these dynamics.
 
 The rates of lethal uses of police force are remarkably high in the United States relative to other countries in the Global North, making it all the more urgent of an issue. While this project is not primarily focused on comparative aspects, a comparative approach nonetheless helps to drive home the point regarding how serious an issue this is. \citeauthor{espinerLicenceKillStartling2022} (\citeyear{espinerLicenceKillStartling2022}) observed that “America is in a league of its own with nearly 31 police shootings per 10 million people,” making the United States' rate nearly four times that of New Zealand and more than 100 times that of England and Wales. Other countries that \citeauthor{espinerLicenceKillStartling2022} (\citeyear{espinerLicenceKillStartling2022}) investigated include Canada (9.2 per ten million) and Norway (3.6 per ten million). This underscores the urgency and need to further investigate causal forces contributing to the high incidence in the United States.
 
@@ -332,7 +332,7 @@ Q$_5$ &---&---&---\\
   \label{tab:luof_freq_majority_quintile}
 \end{table}
 
-A list of lethal uses of force was downloaded from the Fatal Encounters website. The years under analysis for this project were 2015 through 2020, inclusive. Using R’s ‘tidycensus’ package, census tract-level data for all tracts in the United States were downloaded and matched with the latitude and longitude of where a lethal use of force (LUOF) occurred. Incidents that occurred on the border of more than one census tract were excluded from the analysis because it is impossible to determine which tract the LUOF actually occurred in. This typically happens when the incident occurs on a road or highway that divides two or more tracts.
+A list of lethal uses of force was downloaded from the Fatal Encounters website. The years under analysis for this project were 2015 through 2020, inclusive. Using R’s ‘tidycensus’ package, census tract-level data for all tracts in the United States were downloaded and matched with the latitude and longitude of where a \gls{luof} occurred. Incidents that occurred on the border of more than one census tract were excluded from the analysis because it is impossible to determine which tract the LUOF actually occurred in. This typically happens when the incident occurs on a road or highway that divides two or more tracts.
 
 \subsection{Rates by Race and Ethnicity}
 
@@ -409,7 +409,7 @@ The regression results show a negative relationship between income and the proba
 \centering
 \begin{tabular}{lcccccc}
 \toprule
-\textbf{Variable} & \textbf{Coef.} & \textbf{Std. err.} & \textbf{Z-score} & \textbf{P-value} & \textbf{95\% Conf. Interval} \\
+\textbf{Variable} & \textbf{Coef.} & \textbf{Std. err.} & \textbf{Z-score} & \textbf{P-value} & \textbf{95\% Conf. Int.} \\
 \midrule
 Income (\$10k) & -0.13265 & 0.0049 & -27.08 & $<$0.0001 & -0.1423, -0.1231 \\
 Intercept & -1.636736 & 0.03197 & -51.19 & $<$0.0001 & -1.6994, -1.5741 \\
@@ -427,33 +427,43 @@ Having established that income is a substantial predictor of whether a LUOF has 
 \text{logit}(LUOF_{i})=\beta_{0} + \beta_{1} \times Proportion_{i} + \epsilon_{i}
 \end{equation}
 
-\noindent{}where \texttt{i} is a census tract; \texttt{Proportion} is the proportion of the racial or ethnic group living in the \texttt{i}$^\text{th}$ census tract. Three separate regressions were run, one for the proportion black, one for the proportion Hispanic/Latino, and one for the proportion white.
+\noindent{}where \texttt{i} is a census tract; \texttt{Proportion} is the proportion of the racial or ethnic group living in the \texttt{i}$^\text{th}$ census tract. Three separate regressions were run, one for the proportion black, one for the proportion Hispanic/Latino, and one for the proportion non-white (\autoref{tab:proportions_only}).
 
 \begin{table}[ht]
 \centering
 \begin{tabular}{lcccccc}
 \toprule
-\textbf{Model 1} & \textbf{Coef.} & \textbf{Std. err.} & \textbf{Z-score} & \textbf{P-value} & \textbf{95\% Conf. Interval} \\
+\textbf{Model 1} & \textbf{Coef.} & \textbf{Std. err.} & \textbf{Z-score} & \textbf{P-value} & \textbf{95\% Conf. Int.} \\
 \midrule
 Black Proportion & 0.656 & 0.055 & 11.860 & $<$0.0001 & 0.548, 0.764 \\
 Intercept & -2.585 & 0.016 & -164.860 & $<$0.0001 & -2.616, -2.554 \\
 \midrule
-\textbf{Model 2} & \textbf{Coef.} & \textbf{Std. err.} & \textbf{Z-score} & \textbf{P-value} & \textbf{95\% Conf. Interval} \\
+\textbf{Model 2} & \textbf{Coef.} & \textbf{Std. err.} & \textbf{Z-score} & \textbf{P-value} & \textbf{95\% Conf. Int.} \\
 \midrule
-White Proportion & -0.927 & 0.042 & -22.130 & $<$0.0001 & -1.009, -0.845 \\
-Intercept & -1.959 & 0.026 & -75.220 & $<$0.0001 & -2.010, -1.908 \\
+Non-White Proportion & 0.9267 & 0.042 & -22.130 & $<$0.0001 & 0.845, 1.009 \\
+Intercept & -2.8861 & 0.0234 & -123.4 & $<$0.0001 & -2.9321, -2.840 \\
 \midrule
-\textbf{Model 3} & \textbf{Coef.} & \textbf{Std. err.} & \textbf{Z-score} & \textbf{P-value} & \textbf{95\% Conf. Interval} \\
+\textbf{Model 3} & \textbf{Coef.} & \textbf{Std. err.} & \textbf{Z-score} & \textbf{P-value} & \textbf{95\% Conf. Int.} \\
 \midrule
 Latino Proportion & 1.016 & 0.051 & 19.760 & $<$0.0001 & 0.915, 1.117 \\
 Intercept & -2.686 & 0.017 & -156.600 & $<$0.0001 & -2.720, -2.653 \\
 \bottomrule
 \end{tabular}
 \caption{Logit Tables -- Racial Proportions}
+\label{tab:proportions_only}
 \end{table}
 
+\begin{figure}[H]
+  \centering % width=\linewidth, height=\textheight
+  \includegraphics[width=\linewidth]{images/race_proportions_logit}
+  \captionsetup{justification=centering, singlelinecheck=false, margin=2cm}
+  \caption[Predicted Probability of a LUOF (Race Only)]{Predicted Probability of a LUOF.}
+  \label{fig:logit_race_propor}
+\end{figure}
 
+\autoref{fig:logit_race_propor} shows that tracts with a greater proportion of blacks and Hispanics/Latinos have a greater probability of having experienced a \acrfull{luof}. Tracts with a high incidence of Latinos have a higher probability of experiencing a \acrshort{luof} than the tracts with the highest incidence of black residents. In addition, the probability of tracts with larger non-white proportions also have a higher probability of experiencing at least one \acrshort{luof}. The probabilities are nearly identical for tracts that are 100 percent non-white and those that are 100 percent black tracts.
 
+So, both income and racial composition of a neighborhood have a relationship with the probability of a LUOF. Next, regressions with both the racial composition and the median household income were run. This helps establish how much of an effect income has on the probability of a fatal encounter based on the proportion of each racial/ethnic group in the census tract. Marginal effects were calculated and plotted 
 
 \section{CONCLUSION}\
 
